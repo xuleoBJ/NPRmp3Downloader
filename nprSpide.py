@@ -4,7 +4,7 @@ import os
 import urllib
 import datetime
 
-enable_proxy = 1  
+enable_proxy = 0  
 proxy_handler = urllib2.ProxyHandler({"http" : 'proxy-bj1.petrochina:8080'})  
 null_proxy_handler = urllib2.ProxyHandler({})  
 if enable_proxy:  
@@ -13,10 +13,14 @@ else:
 	opener = urllib2.build_opener(null_proxy_handler)  
 urllib2.install_opener(opener)  
 
-url="http://www.npr.org"
+url="http://www.npr.org/programs/ask-me-another/?showDate=2014-10-29"
 storeDir=datetime.date.today().strftime("%Y%m%d")
 if not os.path.exists(storeDir):
-	os.mkdir(storeDir)
+    os.mkdir(storeDir)
+    print storeDir+"has created"
+else:
+    storeDir+"exists"
+
 
 try:
 	print "start:"

@@ -15,8 +15,11 @@ def writeConfig(websites):
     cf.set('webDir','websites',websites)
     ##jjcf.set('proxy','port','80')
     cf.write(open(configFilePath,"w")) 
-enable_proxy = 1  
-proxy_handler = urllib2.ProxyHandler({"http" : 'proxy-bj1.petrochina:8080'})  
+'''
+set proxy here
+'''
+enable_proxy = 0  
+proxy_handler = urllib2.ProxyHandler({"http" : 'yourproxy'})  
 null_proxy_handler = urllib2.ProxyHandler({})  
 if enable_proxy:  
 	opener = urllib2.build_opener(proxy_handler)  
